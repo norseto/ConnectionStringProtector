@@ -17,6 +17,9 @@ namespace ConnectionStringProtector {
 	/// 接続文字列プロテクションモデルクラスです。
 	/// 接続文字列の暗号化・復号化を行います。
 	/// </summary>
+	/// <remakrs>
+	/// This class is based on <see href="https://msdn.microsoft.com/library/ms254494(v=vs.110).aspx">MSDN article</see>.
+	/// </remakrs>
 	public class ConnectionStringProtectorModel {
 		private Configuration config;
 
@@ -61,7 +64,7 @@ namespace ConnectionStringProtector {
 			return stat;
 		}
 
-		IEnumerable<ConnectionStringSettings>
+		private static IEnumerable<ConnectionStringSettings>
 				AsEnumerable(ConnectionStringSettingsCollection collection) {
 			for (int i = 0, l = collection.Count; i < l; i++) {
 				yield return collection[i];

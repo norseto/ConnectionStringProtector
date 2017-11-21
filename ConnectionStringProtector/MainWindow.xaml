@@ -5,7 +5,11 @@
         xmlns:properties="clr-namespace:ConnectionStringProtector.Properties"
         Title="{x:Static resx:Messages.Title}" Height="184" Width="374">
     <Grid>
-        <TextBlock Text="{x:Static resx:Messages.AppDesc}" Height="126" HorizontalAlignment="Left" Margin="8,5,0,0" Name="label1" VerticalAlignment="Top" Width="333" TextWrapping="Wrap" />
+        <TextBlock Text="{x:Static resx:Messages.AppDesc}" Height="88" HorizontalAlignment="Left" Margin="8,5,0,0" Name="label1" VerticalAlignment="Top" Width="333" TextWrapping="Wrap" />
+        <TextBlock Height="20" HorizontalAlignment="Left" Margin="8,111,0,0" Name="link" VerticalAlignment="Top" Width="95" TextWrapping="Wrap">
+            <Hyperlink Name="msdnLink"
+              NavigateUri="https://msdn.microsoft.com/library/ms254494(v=vs.110).aspx">MSDN</Hyperlink>
+        </TextBlock>
         <Button Content="{x:Static resx:Messages.ButtonSelect}" Height="28" HorizontalAlignment="Left" Margin="245,105,0,0" Name="selectButton" VerticalAlignment="Top" Width="96" />
     </Grid>
 </Window>

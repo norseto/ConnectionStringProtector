@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using Microsoft.Win32;
 
@@ -14,6 +15,10 @@ namespace ConnectionStringProtector {
 
 		private void OnCreate() {
 			selectButton.Click += (sender, args) => { ChooseAndProtect();};
+			msdnLink.RequestNavigate += (sender, args) => {
+				Process.Start(new ProcessStartInfo(args.Uri.AbsoluteUri));
+				args.Handled = true;
+			};
 		}
 
 		private void ChooseAndProtect() {
@@ -23,11 +28,11 @@ namespace ConnectionStringProtector {
 			var result = dialog.ShowDialog();
 			if (result.HasValue && result.Value) {
 				var path = dialog.FileName;
-				Protect(path);
+				ToggleProtection(path);
 			}
 		}
 
-		private void Protect(string path) {
+		private void ToggleProtection(string path) {
 			try {
 				var model = new ConnectionStringProtectorModel {
 					TargetPath = path
